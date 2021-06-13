@@ -1,0 +1,86 @@
+<!--Patrick Jensen (mxf667) & Frederik Jeppesen (wcn773)-->
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    background-image: url('/static/baggrund.jpg');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+</style>
+</head>
+<body>
+<h1>Sign up</h1>
+    <div>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <legend>Type here to add an account:</legend>
+                <div>
+                    {{ form.base.label(class="form-control-label") }}
+
+                    {% if form.base.errors %}
+                        {{ form.base(class="form-control form-control-lg is-invalid") }}
+                        <div>
+                            {% for error in form.base.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.base(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div>
+                    {{ form.username.label(class="form-control-label") }}
+
+                    {% if form.username.errors %}
+                        {{ form.username(class="form-control form-control-lg is-invalid") }}
+                        <div>
+                            {% for error in form.username.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.username(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div>
+                    {{ form.password.label(class="form-control-label") }}
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control form-control-lg is-invalid") }}
+                        <div>
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div>
+                    {{ form.zone.label(class="form-control-label") }}
+                    {% if form.zone.errors %}
+                        {{ form.zone(class="form-control form-control-lg is-invalid") }}
+                        <div>
+                            {% for error in form.zone.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.zone(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div>
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+{% endblock content %}

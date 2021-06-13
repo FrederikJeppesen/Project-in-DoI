@@ -1,0 +1,55 @@
+<!--Patrick Jensen (mxf667) & Frederik Jeppesen (wcn773)-->
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    background-image: url('/static/baggrund.jpg');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+</style>
+</head>
+<body>
+<h1>Courier Login</h1>
+    <div>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <div>
+                    {{ form.id.label(class="form-control-label") }}
+                    {% if form.id.errors %}
+                        {{ form.id(class="form-control form-control-lg is-invalid") }}
+                        <div>
+                            {% for error in form.id.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.id(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                    {{ form.password.label(class="form-control-label") }}
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control form-control-lg is-invalid") }}
+                        <div >
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="form-control form-control-lg") }}
+                    {% endif %}
+            <div>
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
+{% endblock content %}

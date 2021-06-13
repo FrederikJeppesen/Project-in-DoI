@@ -1,0 +1,102 @@
+<!--Patrick Jensen (mxf667) & Frederik Jeppesen (wcn773)-->
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    background-image: url('/static/baggrund.jpg');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+</style>
+</head>
+<body>
+  <h1>{{ current_user.name }}</h1>
+  <div class="content-section">	
+    <h1>Your Take-out order(s) to make:</h1>
+    <table style = "background-color: rgb(180, 230, 255);">
+      <thead>
+        <tr>
+          <th scope="col">Order nr</th>
+          <th scope="col">Time of order</th>
+          <th scope="col">Meal name</th>
+          <th scope="col">Earning</th>
+          <th scope="col">Nr of dishes</th>
+          <th scope="col">Pick up time</th>
+          <th scope="col">Customer</th>
+        </tr>
+      </thead>
+      <tbody> 
+      {% for n in inv_cd_list %}
+        <tr>
+          <td scope="row">{{n[0]}}</td>
+          <td>{{n[1]}}</td>
+          <td>{{n[2]}}</td>
+          <td>{{n[3]}}</td>
+          <td>{{n[4]}}</td>
+          <td>{{n[5]}}</td>
+          <td>{{n[6]}}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div><br><br>
+  <div class="content-section">	
+    <h1>Your Courier order(s) to make:</h1>
+    <table style = "background-color: rgb(180, 230, 255);">
+      <thead>
+        <tr>
+          <th scope="col">Order nr</th>
+          <th scope="col">Time of order</th>
+          <th scope="col">Meal name</th>
+          <th scope="col">Earning</th>
+          <th scope="col">Nr of dishes</th>
+          <th scope="col">Courier id</th>
+          <th scope="col">Customer</th>
+        </tr>
+      </thead>
+      <tbody> 
+      {% for n in inv_cd_list3 %}
+        <tr>
+          <td scope="row">{{n[0]}}</td>
+          <td>{{n[1]}}</td>
+          <td>{{n[2]}}</td>
+          <td>{{n[3]}}</td>
+          <td>{{n[4]}}</td>
+          <td>{{n[5]}}</td>
+          <td>{{n[6]}}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div><br><br>
+  <div class="content-section">	
+    <h1>Your ratings:</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Customer</th>
+          <th scope="col">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for n in inv_cd_list2 %}
+        <tr>
+          <td scope="row">{{n[0]}}</td>
+          <td>{{n[1]}}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>  
+  </div><br><br>
+  <div class="navbar-nav">
+      <a class="nav-item nav-link" href="{{ url_for('rLogin.logout') }}">Logout</a>
+  </div>
+</body>
+</html>
+{% endblock content %}
+
