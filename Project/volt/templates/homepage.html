@@ -1,0 +1,48 @@
+<!--Patrick Jensen (mxf667) & Frederik Jeppesen (wcn773)-->
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    background-image: url('/static/baggrund.jpg');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+    #center{
+        text-align: center;
+    }
+    #centerlnk{
+        text-align: center;
+        background-color: rgb(0, 162, 255);
+        color: rgb(255, 255, 255);
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        text-shadow: 1px 2px grey;
+        text-transform: uppercase;
+        float: none;
+    }
+    #centerdiv{
+    position: absolute;
+    margin-top: 30px;
+    left: 40%;
+    width: 20%;
+    }
+</style>
+</head>
+<body>
+<title>Volt</title>
+<h1 id = "center" >Welcome to Volt!</h1>
+<i id = "center"> <p>Proud owners: Patrick Jensen (mxf667) & Frederik Jeppesen (wcn773)</p></i>
+<div id = "centerdiv" >
+<a  href="{{ url_for('Login.customerLogin') }}"><button id = "centerlnk"> Customer login</button></a>
+<a  href="{{ url_for('rLogin.restaurantLogin') }}"><button id = "centerlnk"> Restaurant login</button></a>
+<a  href="{{ url_for('cLogin.courierLogin') }}"><button id = "centerlnk"> Courier login</button></a>
+</div>
+
+</body>
+</html>
